@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:padding="18dp">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="@color/colorForeground"
+            android:background="@color/colorPrimary"
+            android:id="@+id/logoutButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Are you experiencing breathing problems?"
+            android:id="@+id/breathingSwitch"
+            android:checked="false"
+            android:layout_below="@+id/logoutButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/epipenSwitch"
+            android:layout_alignEnd="@+id/epipenSwitch"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorForeground"
+            android:textSize="17dp" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you know this is an allergic reaction?"
+            android:id="@+id/allergySwitch"
+            android:checked="false"
+            android:layout_below="@+id/breathingSwitch"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/breathingSwitch"
+            android:layout_alignEnd="@+id/breathingSwitch"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorForeground"
+            android:textSize="17dp" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you know you need an EpiPen?"
+            android:id="@+id/epipenSwitch"
+            android:checked="false"
+            android:layout_below="@+id/allergySwitch"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorForeground"
+            android:textSize="17dp" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you know you need an inhaler?"
+            android:id="@+id/inhalerSwitch"
+            android:checked="false"
+            android:layout_below="@+id/epipenSwitch"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorForeground"
+            android:textSize="17dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send For Help!"
+            android:id="@+id/emergencyButton"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/emergency_button_selector"
+            android:layout_alignRight="@+id/inhalerSwitch"
+            android:layout_alignEnd="@+id/inhalerSwitch"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/inhalerSwitch"
+            android:layout_marginTop="15dp"
+            android:contextClickable="false"
+            android:textSize="23dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="2"
+        android:orientation="vertical" >
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="io.github.swiftassist.swiftassist.EmergencyActivity"
+            tools:layout="@android:layout/activity_list_item" />
+    </LinearLayout>
+
+</LinearLayout>
