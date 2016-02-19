@@ -1,6 +1,7 @@
 package io.github.swiftassist.swiftassist;
 
 import android.app.Application;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
@@ -13,11 +14,13 @@ public class SwiftAssistApplication extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        Toast.makeText(SwiftAssistApplication.this, "Application onCreate()", Toast.LENGTH_SHORT).show();        // set application context for Firebase database
+
+         // set application context for Firebase database
         Firebase.setAndroidContext(this.getApplicationContext());
 
         // Create reference to shared SwiftAssist database
         mainFirebaseRef = new Firebase("https://swiftassist.firebaseio.com/");
+        startService(new Intent(this, EmergencyResponseService.class));
     }
 
     public Firebase getFirebaseRef(){
