@@ -7,6 +7,22 @@
     android:weightSum="5"
     android:background="@color/colorPrimary">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="2"
+        android:orientation="vertical" >
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="io.github.swiftassist.swiftassist.EmergencyActivity"
+            tools:layout="@android:layout/activity_list_item" />
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
@@ -103,19 +119,5 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="2"
-        android:orientation="vertical" >
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="io.github.swiftassist.swiftassist.EmergencyActivity"
-            tools:layout="@android:layout/activity_list_item" />
-    </LinearLayout>
 
 </LinearLayout>

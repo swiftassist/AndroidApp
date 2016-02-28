@@ -52,6 +52,8 @@ public class EmergencyActivity extends FragmentActivity implements OnMapReadyCal
     private static final int MY_PERMISSIONS_REQUEST_READ_LOCATION = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        startService(new Intent(this, EmergencyResponseService.class));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency);
 
@@ -92,7 +94,7 @@ public class EmergencyActivity extends FragmentActivity implements OnMapReadyCal
                         type = "allergy";
                     }
 
-                    EmergencyData data = new EmergencyData(currentLocation.getLatitude(), currentLocation.getLongitude(), type);
+                    EmergencyData data = new EmergencyData(currentLocation.getLatitude(), currentLocation.getLongitude(), type, "android");
                     emergencyFirebaseRef.push().setValue(data, new Firebase.CompletionListener() {
                         @Override
                         public void onComplete(FirebaseError firebaseError, Firebase firebase){
@@ -183,6 +185,7 @@ public class EmergencyActivity extends FragmentActivity implements OnMapReadyCal
 
     @Override
     public void onLocationChanged(Location location) {
+        emergencyButton.setEnabled(true);
         zoomToMyLocation();
         if (ContextCompat.checkSelfPermission(EmergencyActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
             locMan.removeUpdates(this);
